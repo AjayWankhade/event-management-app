@@ -35,7 +35,6 @@ public class VenueController {
         if (venue != null) {
             return new ResponseEntity<>(venue, HttpStatus.OK);
         } else {
-            // Return a message if the venue is not found
             return new ResponseEntity<>("Venue not found with ID: " + id, HttpStatus.NOT_FOUND);
         }
     }
@@ -72,7 +71,6 @@ public class VenueController {
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            // Handle any other unexpected exceptions
             return new ResponseEntity<>("An unexpected error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

@@ -63,7 +63,6 @@ public class EventController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteEvent(@PathVariable Long id) {
         try {
-            // Check if the event exists before attempting to delete it
             if (!eventService.existsById(id)) {
                 return new ResponseEntity<>("Event not found with ID: " + id, HttpStatus.NOT_FOUND);
             }

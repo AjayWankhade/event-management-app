@@ -53,7 +53,6 @@ public class OrganizerController {
     @PostMapping
     public ResponseEntity<String> createOrganizer(@RequestBody Organizer organizer) {
         try {
-            // Check if an organizer with the same name already exists
             if (organizerService.existsByName(organizer.getName())) {
                 return new ResponseEntity<>("Organizer with the name '" + organizer.getName() + "' already exists.", HttpStatus.CONFLICT);
             }

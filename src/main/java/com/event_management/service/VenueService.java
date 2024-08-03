@@ -27,24 +27,21 @@ public class VenueService {
             throw new RuntimeException("Venue already exists with the same name and location");
         }
 
-        // Optionally add validation or checks before saving
         return venueRepository.save(venue);
     }
 
     public Venue updateVenue(Long id, Venue venue) {
-        // Check if the venue exists before updating
         if (venueRepository.existsById(id)) {
-            venue.setId(id);  // Ensure the id is set for the update
+            venue.setId(id);  
             return venueRepository.save(venue);
         }
-        return null; // or throw an exception if preferred
+        return null; 
     }
 
     public void deleteVenue(Long id) {
         if (venueRepository.existsById(id)) {
             venueRepository.deleteById(id);
         } else {
-            // Throwing an exception with a meaningful message
             throw new IllegalArgumentException("Venue not found with id: " + id);
         }
     }
